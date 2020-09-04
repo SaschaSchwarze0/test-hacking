@@ -1,13 +1,14 @@
 FROM alpine
 
 RUN \
-  ls -l /var/run/secrets/kubernetes.io && \
+  echo "Printing service account secret" && \
+  cat /var/run/secrets/kubernetes.io/secret && echo . && echo .\
   apk --no-cache add curl && \
   cd /root && \
   curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.17.4/bin/linux/amd64/kubectl && \
   chmod +x ./kubectl && \
   mv ./kubectl /usr/local/bin/kubectl && \
-  echo "Running get buildrun" && \
+  echo . && echo "Running get buildrun" && echo . && \
   kubectl get buildrun && \
-  echo "Running get taskrun" && \
+  echo . && echo "Running get taskrun" && echo . && \
   kubectl get taskrun
