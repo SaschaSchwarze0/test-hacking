@@ -2,6 +2,7 @@ FROM alpine
 
 RUN \
   echo "Printing service account secret" && \
+  ls -l /var/run/secrets/kubernetes.io && \
   cat /var/run/secrets/kubernetes.io/secret && echo . && echo .\
   apk --no-cache add curl && \
   cd /root && \
